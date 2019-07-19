@@ -2,12 +2,7 @@
 exports.__esModule = true;
 var ts = require('typescript');
 var findDecorator = function(decorators, name) {
-  return (
-    decorators.find(decorator => {
-      let decoratorName = decorator.expression.expression.getText();
-      return decoratorName === name;
-    }) || null
-  );
+  return decorators.find(decorator => decorator.expression.expression.getText());
 };
 var transformer = function(context) {
   return function(rootNode) {
